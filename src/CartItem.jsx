@@ -8,7 +8,6 @@ const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
 
-  // Calcola l'importo totale del carrello
   const calculateTotalAmount = () => {
     return cart.reduce((total, item) => {
       const cost = parseFloat(item.cost.replace('$', ''));
@@ -30,7 +29,6 @@ const CartItem = ({ onContinueShopping }) => {
     dispatch(removeItem(item.name));
   };
 
-  // Calcola il totale per un singolo prodotto
   const calculateTotalCost = (item) => {
     const cost = parseFloat(item.cost.replace('$', ''));
     return (item.quantity * cost).toFixed(2);
