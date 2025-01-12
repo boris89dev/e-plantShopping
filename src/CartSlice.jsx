@@ -6,15 +6,16 @@ export const CartSlice = createSlice({
   initialState: {
     items: [],
   },
-  },
   reducers: {
     addItem: (state, action) => {
       const item = action.payload;
       const existingItem = state.items.find((i) => i.name === item.name);
       
-        // Se l'elemento è già nel carrello, aumenta la quantità
+      if (existingItem) {
+        
         existingItem.quantity += 1;
-        // Altrimenti, aggiungi l'articolo con quantità 1
+      } else {
+        
         state.items.push({ ...item, quantity: 1 });
       }
     },
