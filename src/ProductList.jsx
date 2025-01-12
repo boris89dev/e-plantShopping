@@ -171,7 +171,7 @@ function ProductList() {
                         </svg>
     
                         {/* Numero che appare sopra l'icona */}
-                        {totalItems > 0 && <span className="cart-item-quantity-value">{totalItems}</span>} 
+                        {totalItems > 0 && <span className="cart_quantity_count">{totalItems}</span>} 
                         </h1>
                         </a>
                     </div>
