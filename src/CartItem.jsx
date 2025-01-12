@@ -7,24 +7,20 @@ const CartItem = ({ onContinueShopping, updateTotalQuantity }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
 
-  // Stato locale per mantenere la quantità totale degli articoli nel carrello
   const [totalQuantity, setTotalQuantity] = useState(0);
 
-  // Calcola il totale di tutti gli articoli nel carrello
   const calculateTotalAmount = () => {
     return cart.reduce((total, item) => total + (item.quantity * item.cost), 0);
   };
 
-  // Calcola la quantità totale di articoli nel carrello
   const calculateTotalQuantity = () => {
     return cart.reduce((total, item) => total + item.quantity, 0);
   };
 
-  // Aggiorna la quantità totale quando il carrello cambia
   useEffect(() => {
     const newTotalQuantity = calculateTotalQuantity();
     setTotalQuantity(newTotalQuantity);
-    updateTotalQuantity(newTotalQuantity);  // Passa la nuova quantità totale alla navbar
+    updateTotalQuantity(newTotalQuantity);
   }, [cart, updateTotalQuantity]);
 
   const handleContinueShopping = (e) => {
@@ -53,7 +49,6 @@ const CartItem = ({ onContinueShopping, updateTotalQuantity }) => {
     dispatch(removeItem(item));
   };
 
-  // Calcola il totale per ogni singolo articolo
   const calculateTotalCost = (item) => {
     return item.quantity * item.cost;
   };

@@ -164,8 +164,9 @@ function ProductList() {
             {!showCart ? (
                 <div className="product-grid">
                     {plantsArray.map((category, index) => (
+                        
                         <div key={index}>
-                        <div align="center"><h1>{category.category}</h1></div>
+                        <h1><div align="center">{category.category}</div></h1>
                         <div className="product-list">
                             {category.plants.map((plant, plantIndex) => (
                             <div className="product-card" key={plantIndex}>
