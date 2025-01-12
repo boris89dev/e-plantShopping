@@ -1,6 +1,9 @@
 /* CartItem.css */
-/* CartItem.css */
 
+.cart {
+    position: relative;
+    display: inline-block;
+}
 .cart-item {
   display: flex;
   border-bottom: 1px solid #ccc;
@@ -50,9 +53,19 @@
 }
 
 .cart-item-quantity-value {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0 10px;
+    position: absolute;
+    top: 40%;  /* Centra il numero verticalmente */
+    left: 40%; /* Centra il numero orizzontalmente */
+    transform: translate(-50%, -50%); /* Allinea il numero al centro del cerchio */
+    color: red;  /* Colore del testo */
+    font-weight: bold;
+    font-size: 24px;  /* Puoi regolare la dimensione del numero */
+    border-radius: 50%; /* Rende il numero rotondo */
+    padding: 4px 8px;  /* Spaziatura interna per il numero */
+    width: 30px; /* Imposta una larghezza fissa per il badge */
+    height: 30px; /* Imposta una altezza fissa per il badge */
+    text-align: center;  /* Centra il numero orizzontalmente */
+    line-height: 20px;  /* Allinea il testo verticalmente */
 }
 
 .cart-item-total {
