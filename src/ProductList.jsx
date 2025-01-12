@@ -1,20 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem } from './CartSlice';
 import './ProductList.css';
 import CartItem from './CartItem';
-import { addItem } from './CartSlice';
 
 function ProductList() {
-    const [addedToCart, setAddedToCart] = useState({});
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false);
-
-    const handleAddToCart = (product) => {
-        dispatch(addItem(product));
-        setAddedToCart((prevState) => ({
-           ...prevState,
-           [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
-         }));
-      };
+    const dispatch = useDispatch();
 
     const plantsArray = [
         {
@@ -123,6 +116,10 @@ function ProductList() {
         color: 'white',
         fontSize: '30px',
         textDecoration: 'none',
+    };
+
+    const handleAddToCart = (product) => {
+        dispatch(addItem(product));
     };
 
     const handleCartClick = (e) => {
